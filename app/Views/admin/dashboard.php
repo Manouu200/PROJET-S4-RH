@@ -1,68 +1,28 @@
-<!DOCTYPE html>
-<html lang="fr">
+<?= view('admin/layout/header', [
+    'title' => 'DASHBOARD ADMIN',
+    'sectionId' => 'page-dashboard-admin',
+]) ?>
+<?= view('admin/sidebar/sidebar', [
+    'activePage' => 'dashboard',
+    'showBadge' => true,
+    'badgeCount' => '4',
+    'userInitials' => 'AD',
+    'userName' => 'Administrateur',
+    'userRole' => 'Admin système',
+]) ?>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <title>DASHBOARD ADMIN</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
-    <link href="<?= base_url('css/style.css') ?>" rel="stylesheet" />
-</head>
+<div class="main">
+    <div class="topbar">
+        <div>
+            <div class="topbar-title">Vue d'ensemble</div>
+            <div class="topbar-breadcrumb">Administration</div>
+        </div>
+        <div class="topbar-actions">
+            <a href="#page-admin-employes" class="btn-forest" style="padding:7px 14px;font-size:.82rem"><i class="bi bi-person-plus"></i> Ajouter un employé</a>
+        </div>
+    </div>
 
-<body>
-    <!-- ╔══════════════════════════════════════════════════════════════╗
-     ║  PAGE 6 — DASHBOARD ADMIN  (admin/dashboard.php)            ║
-     ╚══════════════════════════════════════════════════════════════╝ -->
-    <section id="page-dashboard-admin" style="margin-top:3rem">
-        <div class="app-wrap">
-
-            <aside class="sidebar">
-                <div class="sidebar-brand">
-                    <div class="sidebar-logo-icon" style="background:var(--ink);border:1px solid rgba(255,255,255,.15)"><i class="bi bi-shield-check" style="color:var(--leaf)"></i></div>
-                    <div class="sidebar-brand-name">TechMada RH
-                        <span>Administration</span>
-                    </div>
-                </div>
-                <div class="sidebar-section">Gestion</div>
-                <ul class="sidebar-nav">
-                    <li><a href="#page-dashboard-admin" class="active"><i class="bi bi-speedometer2"></i> Vue d'ensemble</a></li>
-                    <li>
-                        <a href="#page-liste-rh">
-                            <i class="bi bi-inbox"></i> Toutes les demandes
-                            <span class="nav-badge alert">4</span>
-                        </a>
-                    </li>
-                    <li><a href="#page-admin-employes"><i class="bi bi-people"></i> Employés</a></li>
-                    <li><a href="#page-admin-employes"><i class="bi bi-building"></i> Départements</a></li>
-                    <li><a href="#page-admin-employes"><i class="bi bi-tags"></i> Types de congé</a></li>
-                    <li><a href="#page-admin-employes"><i class="bi bi-sliders"></i> Soldes annuels</a></li>
-                </ul>
-                <div class="sidebar-user">
-                    <div class="s-user-row">
-                        <div class="avatar" style="background:#5a2d82;width:32px;height:32px;font-size:.7rem">AD</div>
-                        <div>
-                            <div class="user-name">Administrateur</div>
-                            <div class="user-role">Admin système</div>
-                        </div>
-                        <a href="#page-login" style="margin-left:auto;color:rgba(255,255,255,.25);font-size:1.1rem"><i class="bi bi-box-arrow-right"></i></a>
-                    </div>
-                </div>
-            </aside>
-
-            <div class="main">
-                <div class="topbar">
-                    <div>
-                        <div class="topbar-title">Vue d'ensemble</div>
-                        <div class="topbar-breadcrumb">Administration</div>
-                    </div>
-                    <div class="topbar-actions">
-                        <a href="#page-admin-employes" class="btn-forest" style="padding:7px 14px;font-size:.82rem"><i class="bi bi-person-plus"></i> Ajouter un employé</a>
-                    </div>
-                </div>
-
-                <div class="content">
+    <div class="content">
 
                     <!-- Métriques admin -->
                     <div class="metrics">
@@ -195,14 +155,10 @@
 
                     </div>
 
-                </div>
-                <div class="footer-app"><i class="bi bi-c-circle"></i> 2025 <span>TechMada RH</span></div>
-            </div>
+    </div>
+</div>
 
-        </div>
-    </section>
-    <!-- Navigation demo interne -->
-    <script src="<?= base_url('js/script.js') ?>"></script>
-</body>
-
-</html>
+<?= view('admin/footer/footer', [
+    'footerYear' => '2025',
+    'footerText' => 'TechMada RH',
+]) ?>

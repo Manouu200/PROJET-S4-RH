@@ -1,58 +1,26 @@
-<!DOCTYPE html>
-<html lang="fr">
+<?= view('admin/layout/header', [
+    'title' => 'GESTION EMPLOYÉS',
+    'sectionId' => 'page-admin-employes',
+]) ?>
+<?= view('admin/sidebar/sidebar', [
+    'activePage' => 'employees',
+    'userInitials' => 'AD',
+    'userName' => 'Administrateur',
+    'userRole' => 'Admin système',
+]) ?>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <title>GESTION EMPLOYÉS</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
-    <link href="<?= base_url('css/style.css') ?>" rel="stylesheet" />
-</head>
+<div class="main">
+    <div class="topbar">
+        <div>
+            <div class="topbar-title">Gestion des employés</div>
+            <div class="topbar-breadcrumb"><a href="#page-dashboard-admin">Admin</a> <i class="bi bi-chevron-right" style="font-size:.6rem"></i> Employés</div>
+        </div>
+        <div class="topbar-actions">
+            <a href="#" class="btn-forest" style="padding:7px 14px;font-size:.82rem"><i class="bi bi-person-plus"></i> Ajouter</a>
+        </div>
+    </div>
 
-<body>
-    <!-- ╔══════════════════════════════════════════════════════════════╗
-     ║  PAGE 7 — GESTION EMPLOYÉS  (admin/employes.php)            ║
-     ╚══════════════════════════════════════════════════════════════╝ -->
-    <section id="page-admin-employes" style="margin-top:3rem">
-        <div class="app-wrap">
-
-            <aside class="sidebar">
-                <div class="sidebar-brand">
-                    <div class="sidebar-logo-icon" style="background:var(--ink);border:1px solid rgba(255,255,255,.15)"><i class="bi bi-shield-check" style="color:var(--leaf)"></i></div>
-                    <div class="sidebar-brand-name">TechMada RH<span>Administration</span></div>
-                </div>
-                <ul class="sidebar-nav" style="margin-top:1rem">
-                    <li><a href="#page-dashboard-admin"><i class="bi bi-speedometer2"></i> Vue d'ensemble</a></li>
-                    <li><a href="#page-liste-rh"><i class="bi bi-inbox"></i> Toutes les demandes</a></li>
-                    <li><a href="#page-admin-employes" class="active"><i class="bi bi-people"></i> Employés</a></li>
-                    <li><a href="#page-admin-employes"><i class="bi bi-building"></i> Départements</a></li>
-                    <li><a href="#page-admin-employes"><i class="bi bi-tags"></i> Types de congé</a></li>
-                </ul>
-                <div class="sidebar-user">
-                    <div class="s-user-row">
-                        <div class="avatar" style="background:#5a2d82;width:32px;height:32px;font-size:.7rem">AD</div>
-                        <div>
-                            <div class="user-name">Administrateur</div>
-                            <div class="user-role">Admin système</div>
-                        </div>
-                    </div>
-                </div>
-            </aside>
-
-            <div class="main">
-                <div class="topbar">
-                    <div>
-                        <div class="topbar-title">Gestion des employés</div>
-                        <div class="topbar-breadcrumb"><a href="#page-dashboard-admin">Admin</a> <i class="bi bi-chevron-right" style="font-size:.6rem"></i> Employés</div>
-                    </div>
-                    <div class="topbar-actions">
-                        <a href="#" class="btn-forest" style="padding:7px 14px;font-size:.82rem"><i class="bi bi-person-plus"></i> Ajouter</a>
-                    </div>
-                </div>
-
-                <div class="content">
+    <div class="content">
 
                     <!-- Formulaire ajout -->
                     <div class="form-section">
@@ -201,14 +169,10 @@
                         </table>
                     </div>
 
-                </div>
-                <div class="footer-app"><i class="bi bi-c-circle"></i> 2025 <span>TechMada RH</span></div>
-            </div>
+    </div>
+</div>
 
-        </div>
-    </section>
-    <!-- Navigation demo interne -->
-    <script src="<?= base_url('js/script.js') ?>"></script>
-</body>
-
-</html>
+<?= view('admin/footer/footer', [
+    'footerYear' => '2025',
+    'footerText' => 'TechMada RH',
+]) ?>
