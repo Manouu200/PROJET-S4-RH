@@ -1,0 +1,42 @@
+# Node
+node_modules/
+
+# Composer / PHP
+/vendor/
+/composer.lock
+composer.phar
+
+# Environment
+.env
+env
+
+# CodeIgniter writable directories
+writable/cache/
+writable/debugbar/
+writable/logs/
+writable/session/
+writable/uploads/
+
+# IDEs and editors
+.idea/
+.vscode/
+*.iml
+*.sublime-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# PHPUnit
+phpunit.xml
+
+# Logs, temp, sqlite
+*.log
+*.tmp
+*.swp
+*.sqlite
+*.sqlite3
+
+# Build / distribution
+/build/
+/dist/
