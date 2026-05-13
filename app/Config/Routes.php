@@ -19,6 +19,9 @@ $routes->group('employee', ['filter' => 'employee'], function ($routes) {
 
 $routes->group('admin', ['filter' => 'admin'], function ($routes) {
     $routes->get('dashboard', 'AdminController::index');
+    $routes->get('employes', 'AdminController::employes');
+    $routes->get('departements', 'AdminController::departements');
+    $routes->post('departements', 'AdminController::createDepartement');
 });
 
 $routes->group('rh', ['filter' => 'rh'], function ($routes) {

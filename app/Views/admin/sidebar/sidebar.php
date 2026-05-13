@@ -16,8 +16,8 @@ $logoutLink = $logoutLink ?? '';
     <?php if ($showMenuLabel): ?>
         <div class="sidebar-section">Gestion</div>
     <?php endif; ?>
-    <ul class="sidebar-nav"<?= $showMenuLabel ? '' : ' style="margin-top:1rem"' ?>>
-        <li><a href="#page-dashboard-admin" class="<?= $activePage === 'dashboard' ? 'active' : '' ?>"><i class="bi bi-speedometer2"></i> Vue d'ensemble</a></li>
+    <ul class="sidebar-nav" <?= $showMenuLabel ? '' : ' style="margin-top:1rem"' ?>>
+        <li><a href="<?= base_url('admin/dashboard') ?>" class="<?= $activePage === 'dashboard' ? 'active' : '' ?>"><i class="bi bi-speedometer2"></i> Vue d'ensemble</a></li>
         <li>
             <a href="#page-liste-rh" class="<?= $activePage === 'requests' ? 'active' : '' ?>">
                 <i class="bi bi-inbox"></i> Toutes les demandes
@@ -26,8 +26,8 @@ $logoutLink = $logoutLink ?? '';
                 <?php endif; ?>
             </a>
         </li>
-        <li><a href="#page-admin-employes" class="<?= $activePage === 'employees' ? 'active' : '' ?>"><i class="bi bi-people"></i> Employés</a></li>
-        <li><a href="#page-admin-departements" class="<?= $activePage === 'departments' ? 'active' : '' ?>"><i class="bi bi-building"></i> Départements</a></li>
+        <li><a href="<?= base_url('admin/employes') ?>" class="<?= $activePage === 'employees' ? 'active' : '' ?>"><i class="bi bi-people"></i> Employés</a></li>
+        <li><a href="<?= base_url('admin/departements') ?>" class="<?= $activePage === 'departments' ? 'active' : '' ?>"><i class="bi bi-building"></i> Départements</a></li>
         <li><a href="#page-admin-types" class="<?= $activePage === 'types' ? 'active' : '' ?>"><i class="bi bi-tags"></i> Types de congé</a></li>
         <li><a href="#page-admin-soldes" class="<?= $activePage === 'balances' ? 'active' : '' ?>"><i class="bi bi-sliders"></i> Soldes annuels</a></li>
     </ul>
