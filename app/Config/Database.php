@@ -33,7 +33,6 @@ class Database extends Config
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
         'pConnect'     => false,
-        'DBDebug'      => true,
         'charset'      => 'utf8mb4',
         'DBCollat'     => 'utf8mb4_general_ci',
         'swapPre'      => '',
@@ -41,6 +40,7 @@ class Database extends Config
         'compress'     => false,
         'strictOn'     => false,
         'failover'     => [],
+        'DBDebug'      => true,
         'port'         => 3306,
         'numberNative' => false,
         'foundRows'    => false,
@@ -193,6 +193,24 @@ class Database extends Config
     public function __construct()
     {
         parent::__construct();
+
+        // Read runtime values from .env (if provided) so we can switch drivers easily.
+        $this->default['DSN']      = env('database.default.DSN', $this->default['DSN']);
+        $this->default['hostname'] = env('database.default.hostname', $this->default['hostname']);
+        $this->default['username'] = env('database.default.username', $this->default['username']);
+        $this->default['password'] = env('database.default.password', $this->default['password']);
+        $this->default['database'] = env('database.default.database', $this->default['database']);
+        $this->default['DBDriver'] = env('database.default.DBDriver', $this->default['DBDriver']);
+        $this->default['DBDebug']  = filter_var(env('database.default.DBDebug', $this->default['DBDebug']), FILTER_VALIDATE_BOOLEAN);
+        $this->default['port']     = (int) env('database.default.port', $this->default['port']);
+
+        // If using SQLite and a relative path is provided, resolve it to project root.
+        if (! empty($this->default['database']) && stripos($this->default['DBDriver'], 'sqlite') !== false) {
+            $dbPath = $this->default['database'];
+            if ($dbPath[0] !== DIRECTORY_SEPARATOR && strpos($dbPath, ':') === false) {
+                $this->default['database'] = ROOTPATH . $dbPath;
+            }
+        }
 
         // Ensure that we always set the database group to 'tests' if
         // we are currently running an automated test suite, so that
