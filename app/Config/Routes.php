@@ -10,7 +10,7 @@ $routes->get('/', function () {
 });
 
 $routes->get('/login', 'AuthController::login');
-$routes->post('/authenticate', 'AuthController::authenticate');
+$routes->post('/login', 'AuthController::authenticate');
 $routes->get('/logout', 'AuthController::logout');
 
 $routes->group('employee', ['filter' => 'employee'], function ($routes) {

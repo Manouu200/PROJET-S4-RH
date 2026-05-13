@@ -68,7 +68,8 @@
                         </div>
                     <?php endif; ?>
 
-                    <form action="<?= base_url('authenticate') ?>" method="post">
+                    <form action="<?= site_url('login') ?>" method="post">
+                        <?= csrf_field() ?>
                         <div class="f-group">
                             <label class="f-label">Adresse email</label>
                             <input type="email" name="email" class="f-input" placeholder="vous@techmada.mg" value="employe@techmada.mg" />

@@ -32,9 +32,9 @@ class AuthController extends BaseController
             ]);
 
             return match ($role) {
-                'admin' => redirect()->to('/admin/dashboard'),
-                'rh'    => redirect()->to('/rh/index'),
-                default => redirect()->to('/employee/dashboard'),
+                'admin' => redirect()->to(site_url('admin/dashboard')),
+                'rh'    => redirect()->to(site_url('rh/index')),
+                default => redirect()->to(site_url('employee/dashboard')),
             };
         }
 
