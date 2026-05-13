@@ -19,8 +19,8 @@ create table if not EXISTS employees (
     prenom VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
+    role enum('employee', 'rh', 'admin') NOT NULL,
     date_embauche DATE NOT NULL,
-    role VARCHAR(50) NOT NULL,
     actif BOOLEAN NOT NULL DEFAULT 1,
     id_department int,
     FOREIGN KEY (id_department) REFERENCES departments(id_department)
