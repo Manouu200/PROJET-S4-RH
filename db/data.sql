@@ -1,0 +1,41 @@
+INSERT INTO employees (
+    nom,
+    prenom,
+    email,
+    password,
+    role,
+    date_embauche,
+    actif,
+    id_department
+)
+VALUES
+(
+    'Rakoto',
+    'Admin',
+    'admin@techmada.mg',
+    'admin123',
+    'admin',
+    DATE('now'),
+    1,
+    NULL
+),
+(
+    'Randria',
+    'RH',
+    'rh@techmada.mg',
+    'rh123',
+    'rh',
+    DATE('now'),
+    1,
+    NULL
+),
+(
+    'Rabe',
+    'Employe',
+    'employe@techmada.mg',
+    'emp123',
+    'employee',
+    DATE('now'),
+    1,
+    NULL
+);

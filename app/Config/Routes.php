@@ -5,4 +5,22 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-$routes->get('/', 'Home::index');
+$routes->get('/', function () {
+    return redirect()->to('/login');
+});
+
+$routes->get('/login', 'AuthController::login');
+$routes->post('/authenticate', 'AuthController::authenticate');
+$routes->get('/logout', 'AuthController::logout');
+
+$routes->group('employee', ['filter' => 'employee'], function ($routes) {
+    $routes->get('dashboard', 'EmployeeController::index');
+});
+
+$routes->group('admin', ['filter' => 'admin'], function ($routes) {
+    $routes->get('dashboard', 'AdminController::index');
+});
+
+$routes->group('rh', ['filter' => 'rh'], function ($routes) {
+    $routes->get('index', 'RhController::index');
+});
