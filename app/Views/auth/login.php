@@ -60,7 +60,7 @@
                     <p class="auth-title">Connexion</p>
                     <p class="auth-sub">Entrez vos identifiants pour accéder à votre espace.</p>
 
-                    <?php $loginError = session()->getFlashdata('error'); ?>
+                    <?php /** @var string|null $loginError */ $loginError = session()->getFlashdata('error'); ?>
                     <?php if ($loginError): ?>
                         <div class="flash flash-error">
                             <i class="bi bi-exclamation-circle-fill"></i>
